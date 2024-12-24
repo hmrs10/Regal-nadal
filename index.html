@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar PDF con palabra</title>
+    <style>
+        #pdfViewer {
+            display: none; /* Ocultamos el visor del PDF al principio */
+            width: 600px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Escriu la paraula correcta per veure el regal</h1>
+    <p>Escribe la paraula per veure el regal:</p>
+
+    <!-- Campo de texto donde el usuario escribirá -->
+    <input type="text" id="inputWord" placeholder="Escriu la paraula aquí">
+    <button onclick="verificarPalabra()">Verificar</button>
+
+    <!-- El visor del PDF se encuentra aquí -->
+    <div id="pdfViewer">
+        <iframe src="https://drive.google.com/file/d/13_IfRRfXgCBqunTU8_qnrh4fcCwns1Kc/preview" width="600" height="400"></iframe>
+    </div>
+
+    <script>
+        function verificarPalabra() {
+            var palabra = document.getElementById('inputWord').value; // Obtener el valor del campo de texto
+            var palabraCorrecta = "helenmarin"; // La palabra correcta para mostrar el PDF
+
+            if (palabra.toLowerCase() === palabraCorrecta) {
+                document.getElementById('pdfViewer').style.display = 'block'; // Mostrar el PDF
+            } else {
+                alert("La paraula és incorrecta. Intenta de nou.");
+            }
+        }
+    </script>
+</body>
+</html>
